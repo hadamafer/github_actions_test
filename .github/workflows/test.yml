@@ -1,0 +1,19 @@
+name: test
+on: push #despues de cada pudh en el repo
+jobs:
+  test:
+    runs-on: ubuntu-latest #github hostest vm
+    steps:
+      - name: Get code #descargar el repo, es importante porque la vm se encuentra sepadada del repo 
+        uses: actions/checkout@v3
+        #with: porque no necesitamos agregar nada al with
+      - name: intall nodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies 
+        run: npm ci
+      - name: Run tests
+        run: nom test
+        
+          
