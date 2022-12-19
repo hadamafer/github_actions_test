@@ -16,6 +16,7 @@ jobs:
       - name: Run tests
         run: npm test
   deploy: 
+    needs: test # para declatar que necesita que test este tb antes de ejecutar ese job 
     runs-on: ubuntu-latest
     steps:
       - name: Get code #descargar el repo, es importante porque la vm se encuentra sepadada del repo 
